@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "brand": "Schar",
+        "name": "Gluten Free Croissant",
+        "price": 8.59,
+        "imageUrl": "https://cdn11.bigcommerce.com/s-fk5836vtc2/images/stencil/original/products/699/6725/Croissant_21__02000.1631021032.jpg?c=2",
+        "tags": ["pastry"]
+    },
+
+    {
+        "id": 2,
+        "brand": "Barilla",
+        "name": "Gluten Free Penne",
+        "price": 2.79,
+        "imageUrl": "https://i5.walmartimages.com/asr/b9d0b527-d75a-49dc-91dc-43ec5d02f2cb_1.24db7fc6b97575b4a607928bd9e5af57.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+        "tags": ["pasta"]
+    },
+
+    {
+        "id": 3,
+        "brand": "Oreo",
+        "name": "Gluten Free Oreo",
+        "price": 4.19,
+        "imageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/11/cluten-free-oreos-QT-1200x800.jpg?fit=700,800",
+        "tags": ["treat", "cookie"]
+    },
+
+    {
+        "id": 4,
+        "brand": "Mission",
+        "name": "Mission Gluten Free",
+        "price": 8.59,
+        "imageUrl": "https://farm8.staticflickr.com/7483/15697785503_2c0fbdda56_z.jpg",
+        "tags": ["tortilla"]
+    }
+]
