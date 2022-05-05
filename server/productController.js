@@ -1,44 +1,57 @@
 // To obtain objects / info from json file we must use require
 const storeProducts = require(`./productDb.json`);
 
+require(`dotenv`).config()
+const Sequelize = require(`sequelize`)
+
+const {CONNECTION_STRING} = process.env
+
+const sequelize = new Sequelize(CONNECTION_STRING, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+             rejectUnauthorized: false
+        }
+    }
+});
+
 // Allowing for adjustment for in index when items are deleted
 
-const storeProductsID = storeProducts[storeProducts.length -1] +1
+// const storeProductsID = storeProducts[storeProducts.length -1] +1
 
 module.exports = {
-    // Obtaining all items from json database
-    getStoreProducts: (req, res) => {
-        res.status(200).send(storeProducts);
-    }
+    // Obtaining all items from SQL database
+       getProducts: (req, res) => {
+        sequelize.query(`
+            SELECT *
+            FROM products
+        `)
+        .then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
+    },
 
     // // Creating a new gluten free store product
-    // createStoreProduct: (req, res) => {
-    //     const {brand, name, price, imageUrl, tags} = req.body;
-    //     const newGlutenFreeProduct = {
-    //         id: glutenFreeProductsID,
-    //         brand,
-    //         name,
-    //         price,
-    //         imageUrl,
-    //         tags
-    //     }
-    //     glutenFreeProducts.push(newGlutenFreeProduct)
-    //     res.status(200).send(glutenFreeProducts)
-    //     glutenFreeProductsID++      
-    // },
-
-    // // Allowing user to make changes / update posted products
-    // updateStoreProduct: (req, res) => {
-    //     const {id} = req.params;
-    //     const index = storeProducts.findIndex(storeProduct => storeProduct.id ===+req.params.id);
-    //     res.status(200).send(glutenFreeProducts)
-    // },
+    addProduct: (req, res) => {
+        const {imageurl, brand, name, price} = req.body;
+        sequelize.query(`
+            INSERT INTO products (imageurl, brand, name, price)
+            VALUES ('${imageurl}, '${brand}', '${name}', ${price} )
+        `)
+        .then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))      
+    }
 
     // // Deleting an item from the data base
     // deleteStoreProduct: (req, res) => {
-    //     const index = storeProducts.findIndex(storeProduct => storeProduct.id === +req.params.id);
-    //     storeProducts.splice(index, 1);
-    //     res.status(200).send(storeProducts);
-    // },
+    //    let {id} = req.params
+
+    //     sequelize.query(`
+    //         DELETE
+    //         FROM products
+    //         WHERE id = ${IDBIndex}
+    //     `)
+    //     .then(dbRes => res.status(200).send(dbRes[0]))
+    //     .catch(err => console.log(err))
+    // }
     
 }

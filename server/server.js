@@ -1,14 +1,30 @@
+require(`dotenv`).config()
 const express = require(`express`);
-const cors = require(`cors`);
-
 const app = express();
+const cors = require(`cors`);
+const path = require(`path`)
+const {SERVER_PORT} = process.env
 
 app.use(cors());
 app.use(express.json());
 
 
-const {getStoreProducts} = require(`./productController.js`)
+const {getProducts, addProduct} = require(`./productController.js`)
 
-app.get(`/api/store-products`, getStoreProducts)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/products/storeProduct.html'))
+})
 
-app.listen(4242, () => {console.log(`Listening on port 4242`)})
+app.get('/js', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/products/storeProduct.js'))
+})
+
+app.get(`/css`, (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/products/storeProduct.css'))
+})
+
+app.get(`/api/products`, getProducts)
+app.get(`/api/products`, addProduct)
+// app.get(`/api/products:id`, deleteProduct)
+
+app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

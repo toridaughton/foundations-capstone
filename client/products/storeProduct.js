@@ -1,50 +1,85 @@
+const baseUrl = `http://localhost:4242/api/products`
 //accessing section in html by class
-const productsContainer = document.getElementsByClassName('products-container')
-const addProductBtn = document.getElementsById('add-product')
-const baseUrl = `http://localhost:4242/api/store-products`
+const productsContainer = document.getElementById('products-container')
 
-const productsCallback = ({data: storeProducts}) => displayProducts(storeProducts)
-const errCallback = err => console.log(err.res.data)
+// const addProductFormBtn = document.getElementById('product-form-btn')
 
-const getStoreProducts = () => axios.get(baseUrl).then(productsCallback).catch(errCallback)
+const newProductForm = document.getElementById("new-product-form")
 
-addProductBtn.addEventListener('click', createProductForm)
+const submitHandler = (form) => {
+    form.preventDefault()
 
-const createProductForm = () => {
-    const productFormContainer = document.createElement('div')
-    productFormContainer.classList.add('product-form-container')
+    let imageUrl = document.getElementById('new-product-image');
+    let brand = document.getElementById('new-product-price');
+    let name = document.getElementById('new-product-name')
+    let price = document.getElementById('new-product-price');
+    
+    let body = {
+        imageurl: imageUrl.value,
+        brand: brand.value,
+        name: name.value,
+        price: price.value
+    } 
 
-    productFormContainer.innerHTML = `<form id="add-product-form">
-    <input type="text" id="product-image-url" placeholder="insert image url here></input>
-    </form>`
+    axios.post(baseUrl, body)
+    .then(() =>{
+        imageUrl.value = ''
+        brand.value = ''
+        name.value = ''
+        price.value = ''
+        getProducts()
+    })
+
 }
 
-
+const getProducts = () => {
+    axios.get(baseUrl)
+        .then(res=> {
+            res.data.forEach(product =>{
+                // console.log(product)
+            const productCard = createProductCard(product)
+            productsContainer.innerHTML += productCard
+            })
+        })
+        .catch(err => console.log(err))
+}
+    
 //a function that creates a "card" to hold each individual product
 const createProductCard = (product) => {
-    const productCard = document.createElement('div')
-    productCard.classList.add('product-card')
+    const price = product['price']
+    const displayPrice = `$${price}`
 
-    productCard.innerHTML = `<img alt="gluten free product image" class="product-image" src=${product.imageUrl}/>
-    <div class="product-info">
-    <p id="brand">${product.brand}</p>
-    <p id="name">${product.name}</p>
-    <p id="price">${product.price}</p>
-    </div>`
-    // console.log(product)
-    productsContainer.appendChild(productCard)
-}
+    productCard =
+    `<div class="product-card">
+    <img alt="gluten free product image" class="product-image" src=${product.imageurl}/>
+    <p class="brand">${product.brand}</p>
+    <p class="name">${product.name}</p>
+    <p class="price">${displayPrice}</p>
+    </div>
+    <button id="delete-button" onclick="deleteProduct(${product.id})"> Delete </button>` 
 
-//function that accesses the products container section that already exists in the html file and after separately loops through the array in the productDb.json and for each product in the database calls back to the createProductCard to allow for them to display each product in the products container in html
-const displayProducts = (productsArr) => {
-    productsContainer.innerHTML = ''
-    for(let i = 0; i < productsArr.length; i++){
-        createProductCard(productsArr[i])
-    }
+    return productCard
 }
 
 
 
+// const createProductForm = () => {
+//     const productFormContainer = document.createElement('div')
+//     productFormContainer.classList.add('product-form-container')
+//     const formContainer = document.getElementById('form-container')
+    
+//     formContainer.innerHTML = 
+//     `<form id="add-product-form">
+//     <input type="text" id="product-image-url" placeholder="insert image url here/>
+//     <input type="text" id="brand" placeholder="Product Brand"/>
+//     <input type="text" id="name" placeholder="Product Name/>
+//     <input type="text" id="price" placeholder="Input Price"/>
+//     <button id="add-product-btn">Add Product</button>
+//     </form>`
+//     return formContainer
+// }
+
+// addProductFormBtn.addEventListener('click', createProductForm)
 
 
-getStoreProducts()
+getProducts()

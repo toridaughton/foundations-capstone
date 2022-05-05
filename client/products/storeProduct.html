@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="storeProduct.css"/>
+    <link rel="stylesheet" href="/css"/>
     <title>Gluten Free Haven</title>
 </head>
 <body>
@@ -31,14 +31,19 @@
                 <option value=""></option>
             </select>
         </section> -->
-        <section class="products-container"></section>
-        <aside>
-            <button id="add-product">Add Product</button>
-        </aside>
+        <form id="add-product-form">
+            <input type="text" id="new-product-image" placeholder="Input image url"/>
+            <input type="text" id="new-product-brand" placeholder="Product Brand"/>
+            <input type="text" id="new-product-name" placeholder="Product Name"/>
+            <input type="text" id="new-product-price" placeholder="Product price"/>
+            <button id="add-product-button">Add Product</button>
+        </form>
+        <section id="products-container"></section>
+       
     </main>
     <footer></footer>
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="storeProduct.js"></script>
+    <script src="/js"></script>
 </body>
 </html>
