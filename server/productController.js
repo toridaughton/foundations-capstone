@@ -25,6 +25,7 @@ module.exports = {
         sequelize.query(`
             SELECT *
             FROM products
+            ORDER BY id desc;
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
@@ -33,25 +34,28 @@ module.exports = {
     // // Creating a new gluten free store product
     addProduct: (req, res) => {
         const {imageurl, brand, name, price} = req.body;
+        console.log(req.body)
         sequelize.query(`
             INSERT INTO products (imageurl, brand, name, price)
-            VALUES ('${imageurl}, '${brand}', '${name}', ${price} )
+            VALUES ('${imageurl}', '${brand}', '${name}', ${price} )
+
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))      
+    },
+
+    // Deleting an item from the data base
+    deleteProduct: (req, res) => {
+       let {id} = req.params
+        console.log(id)
+        sequelize.query(`
+            DELETE
+            FROM products
+            WHERE id = ${id}
+        `)
+        
+        .then(res.sendStatus(200))
+        .catch(err => console.log(err))
     }
-
-    // // Deleting an item from the data base
-    // deleteStoreProduct: (req, res) => {
-    //    let {id} = req.params
-
-    //     sequelize.query(`
-    //         DELETE
-    //         FROM products
-    //         WHERE id = ${IDBIndex}
-    //     `)
-    //     .then(dbRes => res.status(200).send(dbRes[0]))
-    //     .catch(err => console.log(err))
-    // }
     
 }

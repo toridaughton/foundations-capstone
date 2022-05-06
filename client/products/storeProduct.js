@@ -4,13 +4,14 @@ const productsContainer = document.getElementById('products-container')
 
 // const addProductFormBtn = document.getElementById('product-form-btn')
 
-const newProductForm = document.getElementById("new-product-form")
+const newProductForm = document.getElementById("add-product-button")
 
 const submitHandler = (form) => {
+    
     form.preventDefault()
 
     let imageUrl = document.getElementById('new-product-image');
-    let brand = document.getElementById('new-product-price');
+    let brand = document.getElementById('new-product-brand');
     let name = document.getElementById('new-product-name')
     let price = document.getElementById('new-product-price');
     
@@ -20,22 +21,27 @@ const submitHandler = (form) => {
         name: name.value,
         price: price.value
     } 
-
+        console.log(body)
     axios.post(baseUrl, body)
     .then(() =>{
         imageUrl.value = ''
         brand.value = ''
         name.value = ''
-        price.value = ''
+        price.value = 0
+        productsContainer.innerHTML = ''
+        console.log(productsContainer.innerHTML)
         getProducts()
+
     })
 
 }
 
 const getProducts = () => {
+    productsContainer.innerHTML = ''
     axios.get(baseUrl)
         .then(res=> {
             res.data.forEach(product =>{
+                console.log(res.data)
                 // console.log(product)
             const productCard = createProductCard(product)
             productsContainer.innerHTML += productCard
@@ -46,19 +52,36 @@ const getProducts = () => {
     
 //a function that creates a "card" to hold each individual product
 const createProductCard = (product) => {
-    const price = product['price']
-    const displayPrice = `$${price}`
-
     productCard =
     `<div class="product-card">
     <img alt="gluten free product image" class="product-image" src=${product.imageurl}/>
     <p class="brand">${product.brand}</p>
     <p class="name">${product.name}</p>
-    <p class="price">${displayPrice}</p>
+    <p class="price">$${product.price}</p>
     </div>
     <button id="delete-button" onclick="deleteProduct(${product.id})"> Delete </button>` 
+    // console.log(product.id)
 
     return productCard
+}
+
+// const deleteProduct = (id) => {
+//     axios.delete(`${baseUrl}/:${id}`)
+//     .then(() => getProducts())
+//     .catch(err => console.log(err))
+// }
+
+// const deleteProduct = (id) => {
+//     console.log(id)
+//     axios.delete(`${baseUrl}/${id}`)
+//     .then(() => getProducts())
+//     .catch(err => console.log(err))
+// }
+const deleteProduct = (id) => {
+    // console.log(id)
+    axios.delete(`${baseUrl}/${id}`)
+    .then(getProducts)
+    .catch(err => console.log(err))
 }
 
 
@@ -79,7 +102,7 @@ const createProductCard = (product) => {
 //     return formContainer
 // }
 
-// addProductFormBtn.addEventListener('click', createProductForm)
 
 
+newProductForm.addEventListener('click', submitHandler)
 getProducts()
