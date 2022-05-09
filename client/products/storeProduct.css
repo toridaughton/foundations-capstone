@@ -1,0 +1,206 @@
+* {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif;
+    }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 50px;
+    background-color: #6FB1BF;
+    width: 100vw;
+    height: 20vh;
+    font-family: 'Lato', sans-serif;
+    font-size: 4vh
+}
+
+
+#home-link {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 6vh;
+    display: flexbox;
+    text-shadow: 0.2px 5px 15px #011826
+}
+
+#home-link:hover {
+    color:rgb(255, 233, 110);
+    text-shadow: 5px 5px 15px #F2E6D8;
+    transition: .5s;
+    transform: scale(1.1, 1.2);
+}
+
+nav {
+    display: flex;
+    width: 400px;
+    text-align: center;
+    justify-content: space-around;   
+}
+
+#store-products {
+    color: rgb(246, 223, 95);
+    text-shadow:  5px 5px 15px #F2E6D8;
+}
+
+#about-link {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    text-shadow: 0.2px 5px 15px #011826
+}
+
+#about-link:hover {
+    color:rgb(255, 233, 110);
+    text-shadow: 5px 5px 15px #F2E6D8;
+    transition: .5s;
+    transform: scale(1.1, 1.2);
+}
+
+main {
+    background-image: url("https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+
+#products-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    font-family: 'Lato', sans-serif;
+    background-color: #9cc3d2a4;
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 10px;   
+    border-radius: 5%; 
+    font-size: large;
+}
+
+.product-image {
+    height: 350px;
+    width: 250px;
+    border-radius: 7px;
+}
+
+#delete-button {
+    margin: 5px;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+#delete-button:hover {
+    cursor: pointer;
+}
+
+#add-new-product-form-button {
+    margin: 5px;
+    font-family: 'Lato', sans-serif;
+    background-color: #F2E6D8;
+    font-size: xx-large;
+    position: fixed;
+    right: -300px;
+    border: 0;
+    padding: 30px;
+    border-radius: 7px;
+    box-shadow: 0.2px 5px 10px black;
+}
+
+#add-new-product-form-button:hover {
+    cursor: pointer;
+    background-color: #F2E6D8;
+    position: fixed;
+    font-size: large;
+    right: 5px;
+}
+
+.form-container {
+    background-color: rgb(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw
+}
+
+.form-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#pop-up {
+    padding: 10px;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    background-color: #F2E6D8;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgbc(0, 0, 0, 0.2);
+    padding: 100px 5px;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+}
+
+h1 {
+    position: absolute;
+    font-size: x-large;
+    top: 50px;
+    left: 120px;
+}
+
+.input-container {
+    margin: 20px;
+}
+
+#dollar-sign {
+    position: absolute;
+    left: 108px;
+    bottom: 123px;
+}
+
+#add-product-button {
+    position: absolute;
+    right: 165px;
+    bottom: 50px;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+#esc-form {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+footer {
+    background-color: #6FB1BF;
+    width: 100vw;
+    height: 10vh;
+    font-family: 'Lato', sans-serif;
+    font-size: xx-large
+}

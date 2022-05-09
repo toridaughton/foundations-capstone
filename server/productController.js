@@ -1,6 +1,5 @@
 // To obtain objects / info from json file we must use require
 const storeProducts = require(`./productDb.json`);
-
 require(`dotenv`).config()
 const Sequelize = require(`sequelize`)
 
@@ -57,5 +56,4 @@ module.exports = {
         .then(res.sendStatus(200))
         .catch(err => console.log(err))
     }
-    
 }

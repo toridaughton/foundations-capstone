@@ -13,7 +13,7 @@ const {getProducts, addProduct, deleteProduct} = require(`./productController.js
 
 app.get(`/`, (req, res) => res.sendFile(path.join(__dirname, '../client/home/home.html')))
 app.get('/products', (req, res) => res.sendFile(path.join(__dirname, '../client/products/storeProduct.html')))
-
+app.get(`/about`, (req, res) => res.sendFile(path.join(__dirname, '../client/about/about.html')))
 
 
 app.use(express.static(path.join(__dirname, '../client')))

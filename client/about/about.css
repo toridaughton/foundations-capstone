@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-}
-
 header {
     display: flex;
     align-items: center;
@@ -19,13 +13,20 @@ header {
 
 
 #home-link {
+    text-decoration: none;
+    color: whitesmoke;
     font-weight: bolder;
     font-size: 6vh;
     display: flexbox;
-    color: rgb(246, 223, 95);
-    text-shadow: 5px 5px 15px #F2E6D8;
+    text-shadow: 0.2px 5px 15px #011826
 }
 
+#home-link:hover {
+    color:rgb(255, 233, 110);
+    text-shadow: 5px 5px 15px #F2E6D8;
+    transition: .5s;
+    transform: scale(1.1, 1.2);
+}
 
 nav {
     display: flex;
@@ -33,7 +34,6 @@ nav {
     text-align: center;
     justify-content: space-around;   
 }
-
 
 #store-products-link {
     text-decoration: none;
@@ -49,31 +49,20 @@ nav {
 }
 
 #about-link {
-    text-decoration: none;
-    color: whitesmoke;
-    font-weight: bolder;
-    text-shadow: 0.2px 5px 15px #011826
-}
-
-#about-link:hover {
-    color:rgb(255, 233, 110);
+    color: rgb(255, 233, 110);
     text-shadow: 5px 5px 15px #F2E6D8;
-    transition: .5s;
-    transform: scale(1.1, 1.2);
 }
 
 main {
+    background-image: "https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
     height: 100vh;
     width: 100vw;
-    background-image: url("https://www.seasonalcravings.com/wp-content/uploads/2019/12/iStock-1144977508-scaled.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
-
 
 footer {
     background-color: #6FB1BF;
     width: 100vw;
     height: 10vh;
     font-family: 'Lato', sans-serif;
+    font-size: xx-large
 }

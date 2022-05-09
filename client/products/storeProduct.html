@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="./storeProduct.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
     <title>Gluten Free Haven</title>
 </head>
 <body>
     <header>
-        <a href="/">Gluten Free Haven</a>
+        <a id ="home-link" href="/">Gluten Free Haven</a>
         <nav>
                 <!-- <a class="nav" id="recipes">Recipes</a> -->
-                <!-- <a class="nav" id="store-product" href="/products">Store Products</a> -->
-                <!-- <a class="nav" id="restaurants">Restaurants</a>
-                <a class="nav" id="profile">Profile</a> -->
+                <p class="nav" id="store-products">Store Products</p>
+                <!-- <a class="nav" id="restaurants">Restaurants</a> -->
+                <a class="nav" id="about-link" href="/about">About</a>
         </nav>
     </header>
     <main>
@@ -31,17 +35,35 @@
                 <option value=""></option>
             </select>
         </section> -->
-        <form id="add-product-form">
-            <input type="text" id="new-product-image" placeholder="Input image url"/>
-            <input type="text" id="new-product-brand" placeholder="Product Brand"/>
-            <input type="text" id="new-product-name" placeholder="Product Name"/>
-            <input type="text" id="new-product-price" placeholder="Product price"/>
-            <button id="add-product-button">Add Product</button>
-        </form>
-        <section id="products-container"></section>
-       
-    </main>
-    <footer></footer>
+        <aside>
+            <button id="add-new-product-form-button"> ⇦ Add New Product</button>
+        </aside>
+        <div class="form-container">
+            <div id="pop-up">
+                <h1>Know a Product?</h1>
+          <form class="hide" id="add-product-form">
+            <div class="input-container">
+                <input type="text" id="new-product-image" placeholder="Input image url"/>
+            </div>
+              <div class="input-container">
+                  <input type="text" id="new-product-brand" placeholder="Product Brand"/>
+              </div>
+              <div class="input-container">
+                  <input type="text" id="new-product-name" placeholder="Product Name"/>
+              </div>
+              <div class="input-container">
+                  <span id="dollar-sign">$</span>
+                  <input type="text" id="new-product-price" placeholder="Product price"/>
+                </div>
+                <button id="add-product-button">Add Product</button>
+            </form>
+            <button id="esc-form"> x </button>
+            </div>
+            </div>
+            <section id="products-container"></section>
+            
+        </main>
+        <footer></footer>
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./storeProduct.js"></script>
