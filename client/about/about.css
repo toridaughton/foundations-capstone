@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -10,7 +16,6 @@ header {
     font-family: 'Lato', sans-serif;
     font-size: 4vh
 }
-
 
 #home-link {
     text-decoration: none;
@@ -30,7 +35,7 @@ header {
 
 nav {
     display: flex;
-    width: 400px;
+    width: 500px;
     text-align: center;
     justify-content: space-around;   
 }
@@ -54,15 +59,59 @@ nav {
 }
 
 main {
-    background-image: "https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    background-image: url("https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
 }
 
+section {
+    color: black;
+    background-color: #9cc3d2a4;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 80vh;
+    width: 60vw;
+    box-sizing: border-box;
+    padding: 50px;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
+}
+
+h1 {
+    font-size: 3.5vh;
+}
+
+#about-body {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vh;
+}
+
 footer {
+    display: flex;
     background-color: #6FB1BF;
     width: 100vw;
     height: 10vh;
     font-family: 'Lato', sans-serif;
-    font-size: xx-large
+    font-size: 1.5vh;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.bottom-left {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    margin-left: 50px;
+  }

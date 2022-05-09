@@ -14,10 +14,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     }
 });
 
-// Allowing for adjustment for in index when items are deleted
-
-// const storeProductsID = storeProducts[storeProducts.length -1] +1
-
 module.exports = {
     // Obtaining all items from SQL database
        getProducts: (req, res) => {
@@ -33,7 +29,7 @@ module.exports = {
     // // Creating a new gluten free store product
     addProduct: (req, res) => {
         const {imageurl, brand, name, price} = req.body;
-        console.log(req.body)
+        // console.log(req.body)
         sequelize.query(`
             INSERT INTO products (imageurl, brand, name, price)
             VALUES ('${imageurl}', '${brand}', '${name}', ${price} )

@@ -2,7 +2,7 @@
         margin: 0;
         padding: 0;
         font-family: 'Lato', sans-serif;
-    }
+    } 
 
 header {
     display: flex;
@@ -16,7 +16,6 @@ header {
     font-family: 'Lato', sans-serif;
     font-size: 4vh
 }
-
 
 #home-link {
     text-decoration: none;
@@ -36,7 +35,7 @@ header {
 
 nav {
     display: flex;
-    width: 400px;
+    width: 500px;
     text-align: center;
     justify-content: space-around;   
 }
@@ -68,7 +67,6 @@ main {
     flex-direction: row;
     width: 100vw;
 }
-
 
 #products-container {
     display: flex;
@@ -198,9 +196,21 @@ h1 {
 }
 
 footer {
+    display: flex;
     background-color: #6FB1BF;
     width: 100vw;
     height: 10vh;
     font-family: 'Lato', sans-serif;
-    font-size: xx-large
+    font-size: 1.5vh;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.bottom-left {
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    margin-left: 50px;
+  }

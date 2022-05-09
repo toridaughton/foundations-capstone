@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../reset.css">
-    <link rel="stylesheet" href="./storeProduct.css"/>
+    <link rel="stylesheet" href="./products/storeProduct.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
@@ -15,26 +15,11 @@
     <header>
         <a id ="home-link" href="/">Gluten Free Haven</a>
         <nav>
-                <!-- <a class="nav" id="recipes">Recipes</a> -->
                 <p class="nav" id="store-products">Store Products</p>
-                <!-- <a class="nav" id="restaurants">Restaurants</a> -->
                 <a class="nav" id="about-link" href="/about">About</a>
         </nav>
     </header>
     <main>
-        <!-- <section class="category-search">
-            <label for="category">
-                Category
-            </label>
-            <select name="category" id="category">
-                <option>Choose Category</option>
-                <option value="pastry">Pastry</option>
-                <option value="tortillas">Tortillas</option>
-                <option value="treats">Treats</option>
-                <option value="pasta">Pasta</option>
-                <option value=""></option>
-            </select>
-        </section> -->
         <aside>
             <button id="add-new-product-form-button"> ⇦ Add New Product</button>
         </aside>
@@ -61,11 +46,13 @@
             </div>
             </div>
             <section id="products-container"></section>
-            
         </main>
-        <footer></footer>
-    
+        <footer>
+            <div class="bottom-left" id="trade-mark">
+                <p>Gluten Free Haven™</p>
+            </div>
+        </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./storeProduct.js"></script>
+    <script src="./products/storeProduct.js"></script>
 </body>
 </html>
