@@ -17,6 +17,10 @@ header {
     font-size: 4vh
 }
 
+body {
+    overflow-x: hidden;
+}
+
 #home-link {
     font-weight: bolder;
     font-size: 6vh;
