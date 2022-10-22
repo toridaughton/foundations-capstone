@@ -1,9 +1,12 @@
 // To obtain objects / info from json file we must use require
-const storeProducts = require(`./productDb.json`);
+// const storeProducts = require(`./productDb.json`);
 require(`dotenv`).config()
-const Sequelize = require(`sequelize`)
 
 const {CONNECTION_STRING} = process.env
+
+
+
+const Sequelize = require(`sequelize`)
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
     dialect: 'postgres',
@@ -28,11 +31,11 @@ module.exports = {
 
     // // Creating a new gluten free store product
     addProduct: (req, res) => {
-        const {imageurl, brand, name, price} = req.body;
-        // console.log(req.body)
+        const {imageUrl, brand, name, price} = req.body;
+        console.log(req.body)
         sequelize.query(`
-            INSERT INTO products (imageurl, brand, name, price)
-            VALUES ('${imageurl}', '${brand}', '${name}', ${price} )
+            INSERT INTO products (imageUrl, brand, name, price)
+            VALUES ('${imageUrl}', '${brand}', '${name}', ${price})
 
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
