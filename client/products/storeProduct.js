@@ -13,8 +13,6 @@ const getProducts = () => {
     axios.get(baseUrl)
     .then(res=> {
         res.data.forEach(product =>{
-            console.log(res.data)
-            // console.log(product)
             const productCard = createProductCard(product)
             productsContainer.innerHTML += productCard
         })
@@ -32,7 +30,7 @@ const createProductCard = (product) => {
     <p class="price">$${product.price}</p>
     <button id="delete-button" onclick="deleteProduct(${product.id})"> Delete </button>
     </div>`
-    // console.log(product.id)
+    // console.log(product.imageUrl)
     
     return productCard
 }
@@ -47,11 +45,12 @@ const submitHandler = (form) => {
     let price = document.getElementById('new-product-price');
     
     let body = {
-        imageurl: imageUrl.value,
+        imageUrl: imageUrl.value,
         brand: brand.value,
         name: name.value,
         price: price.value
     } 
+    // console.log(imageUrl)
         console.log(body)
     axios.post(baseUrl, body)
     .then(() =>{
